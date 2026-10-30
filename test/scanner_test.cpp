@@ -39,8 +39,8 @@ int main() {
           "x,IDENTIFIER :=,ASSIGN 4,NUMBER ;,SEMICOLON");
     check("assign no spaces", "x:=4;",
           "x,IDENTIFIER :=,ASSIGN 4,NUMBER ;,SEMICOLON");
-    check("all keywords", "read write if then end repeat until",
-          "read,READ write,WRITE if,IF then,THEN end,END repeat,REPEAT until,UNTIL");
+    check("all keywords", "read write else if then end repeat until",
+          "read,READ write,WRITE else,ELSE if,IF then,THEN end,END repeat,REPEAT until,UNTIL");
     check("all symbols", "; < = + - * / ( )",
           ";,SEMICOLON <,LESSTHAN =,EQUAL +,PLUS -,MINUS *,MULT /,DIV (,OPENBRACKET ),CLOSEDBRACKET");
     check("expression", "a := (b + 12) / 289;",

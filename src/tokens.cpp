@@ -5,6 +5,7 @@ std::string typeToString(TokenType type) {
     switch (type) {
         case TokenType::SEMICOLON:     return "SEMICOLON";
         case TokenType::IF:            return "IF";
+        case TokenType::ELSE:          return "ELSE";
         case TokenType::THEN:          return "THEN";
         case TokenType::END:           return "END";
         case TokenType::REPEAT:        return "REPEAT";
@@ -31,6 +32,7 @@ std::string typeToString(TokenType type) {
 TokenType lookupKeyword(const std::string& word) {
     static const std::map<std::string, TokenType> keywords = {
         {"if",     TokenType::IF},
+        {"else",   TokenType::ELSE},
         {"then",   TokenType::THEN},
         {"end",    TokenType::END},
         {"repeat", TokenType::REPEAT},
