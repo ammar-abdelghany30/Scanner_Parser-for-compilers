@@ -41,13 +41,25 @@ void Scanner::skipWhitespaceAndComments() {
 
 Token Scanner::scanWord() {
     std::string word;
-    while (std::isalpha(static_cast<unsigned char>(peek()))) word += advance();
+    bool hasDigit = false;
+    while (std::isalnum(static_cast<unsigned char>(peek()))) {
+        char ch = advance();
+        if (std::isdigit(static_cast<unsigned char>(ch))) hasDigit = true;
+        word += ch;
+    }
+    if (hasDigit) return {word, TokenType::ERROR_TOKEN};
     return {word, lookupKeyword(word)};
 }
 
 Token Scanner::scanNumber() {
     std::string num;
-    while (std::isdigit(static_cast<unsigned char>(peek()))) num += advance();
+    bool hasLetter = false;
+    while (std::isalnum(static_cast<unsigned char>(peek()))) {
+        char ch = advance();
+        if (std::isalpha(static_cast<unsigned char>(ch))) hasLetter = true;
+        num += ch;
+    }
+    if (hasLetter) return {num, TokenType::ERROR_TOKEN};
     return {num, TokenType::NUMBER};
 }
 
