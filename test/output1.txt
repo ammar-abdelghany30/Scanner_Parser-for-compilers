@@ -1,0 +1,12 @@
+read , READ
+x , IDENTIFIER
+; , SEMICOLON
+if , IF
+x , IDENTIFIER
+< , LESSTHAN
+10 , NUMBER
+then , THEN
+write , WRITE
+x , IDENTIFIER
++ , PLUS
+end , END
