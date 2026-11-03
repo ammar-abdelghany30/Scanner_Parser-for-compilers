@@ -30,6 +30,9 @@ std::string typeToString(TokenType type) {
 }
 
 TokenType lookupKeyword(const std::string& word) {
+    std::string lower = word;
+    for (char& ch : lower)
+        ch = static_cast<char>(std::tolower(static_cast<unsigned char>(ch)));
     static const std::map<std::string, TokenType> keywords = {
         {"if",     TokenType::IF},
         {"else",   TokenType::ELSE},
@@ -41,7 +44,7 @@ TokenType lookupKeyword(const std::string& word) {
         {"write",  TokenType::WRITE}
     };
 
-    auto it = keywords.find(word);
+    auto it = keywords.find(lower);
     if (it != keywords.end()) {
         return it->second;
     }
